@@ -1,0 +1,83 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 28, 2020, 11:44:37 AM
+    Author     : ADMIN
+*/
+
+.question-block {
+   position: relative;
+   background-color: white;
+   border-color: #dee0e1 !important;
+   border-style: solid;
+   border-width: 1px;
+   border-radius: 3px;
+   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+   margin-top: 8px;
+}
+
+.question-block-header {
+   border-bottom-style: solid;
+   border-width: 1px;
+   border-color: #dee0e1;
+   padding-top: 8px;
+   padding-bottom: 8px;
+   padding-left: 16px;
+   padding-right: 16px;
+}
+
+#questionsvg {
+   stroke: rgb(255, 255, 255);
+   stroke-width: 2.1;
+}
+
+.question-logo {
+   width: 30px;
+   height: 30px;
+   background-color: #b92b27;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 3px;
+   margin-right: 10px;
+}
+
+.question-block-header span {
+   font-size: 14px;
+}
+
+.question-block-content {
+   padding-top: 8px;
+   padding-bottom: 8px;
+   padding-left: 16px;
+   padding-right: 16px;
+   border-bottom-style: solid;
+   border-width: 1px;
+   border-color: #dee0e1;
+}
+
+.question-header {
+   font-size: 14px;
+   color: #939598;
+}
+
+.question-block-content a:hover {
+   text-decoration: underline;
+}
+
+.question-content {
+   display: inline-block;
+   color: black;
+   font-size: 18px !important;
+   font-weight: bold !important;
+   margin-top: 5px !important;
+   margin-bottom: 5px !important;
+}
+
+#answer-amount {
+   font-size: 14px;
+   color: #939598;
+}

@@ -1,0 +1,207 @@
+#addquestion-container {
+    position: fixed;
+    z-index: 999;
+    top: 0px;
+    display: none;
+    background-color: rgba(36, 36, 36, 0.9);
+    width: 100vw;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.addquestion-block {
+    position: relative;
+    display: inline-block;
+    width: 600px;
+    /* height: 600px; */
+    background-color: white;
+    border-radius: 10px;
+    /*overflow: hidden;*/
+}
+
+.addquestion-header {
+    justify-content: space-between;
+    padding-left: 30px;
+    padding-right: 12px;
+    padding-top: 15px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid#b92b27;
+    font-size: 18px;
+    color: #b92b27;
+    font-weight: 500;
+    border-radius: 10px;
+    background: #efefef;
+}
+
+.addquestion-content {
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 15px;
+}
+
+.add-tips {
+    color: #6585ff;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background: #ebf0ff;
+}
+
+.add-tips li {
+    margin-left: 18px;
+}
+
+.question-input-field {
+    width: 100%;
+    margin-top: 30px;
+    line-height: 1.4;
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-color: #dee0e1 !important;
+    background-color: #fff;
+    padding-bottom: 3px;
+    display: inline-flex;
+    flex: 1 1 0%;
+    min-width: 0px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.choice-topic-field {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 2px;
+    margin-top: 28px;
+    cursor: pointer;
+}
+
+.choose-topic-button {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    justify-content: space-between;
+}
+
+.choose-topic-button img{
+    padding-right: 15px;
+}
+
+.choose-topic-value-wrapper {
+    display: none;
+    position: absolute;
+    top: 30px;
+    width: 100%;
+}
+
+.choose-topic-value {
+    border: 1px solid rgba(1,1,1,0.5);
+    border-top: none;
+    border-radius: 2px;
+    width: 100%;
+    height: 50px;
+    background: white;
+}
+
+.choose-topic-image {
+    border-radius: 1000px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-left: 15px;
+    margin-right: 10px;
+}
+
+.choose-topic-image img {
+    height: 100%;
+}
+
+
+.addquestion-content textarea {
+    width: 100%;
+    box-shadow: none;
+    background-color: transparent;
+    padding: 0px;
+    outline: none;
+    border: none;
+    flex: 1 1 0%;
+    min-height: 26px;
+    overflow: hidden;
+    /* important */
+    overflow-wrap: break-word;
+    height: 26px;
+    font-size: 15px;
+    resize: none;
+    overflow-y: scroll;
+    max-height: 300px;
+}
+
+.question-input-field:focus-within {
+    border-bottom: 1px solid #2e69ff !important;
+}
+
+.addquestion-footer {
+    padding-left: 30px;
+    padding-right: 12px;
+    padding-top: 15px;
+    padding-bottom: 12px;
+    border-top: 1px solid#b92b27;
+    background: #efefef;
+    justify-content: flex-end;
+    border-radius: 10px;
+}
+
+.cancel-wrapper {
+    width: 55px;
+    height: 33px;
+    font-size: 13px;
+    color: #636466;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1000px;
+}
+
+.cancel-wrapper:hover {
+    background-color: rgba(1, 1, 1, 0.05);
+}
+
+.add-question-action {
+    width: 110px;
+    height: 33px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2e69ff;
+    border-radius: 1000px;
+    outline: none;
+    cursor: pointer;
+    border-width: 0px;
+    margin-left: 10px;
+}
+
+.add-question-action span {
+    font-size: 13px;
+    font-weight: 600;
+    color: white;
+}
+
+.add-question-action:hover {
+    background-color: rgb(26, 90, 255);
+}

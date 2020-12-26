@@ -1,0 +1,303 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 28, 2020, 8:32:54 PM
+    Author     : ADMIN
+*/
+
+html,
+body {
+   background-color: #ffffff !important;
+}
+
+.account-wrapper {
+   position: relative;
+   top: 50px;
+}
+
+.account-content {
+   width: 1002px;
+   padding-top: 30px;
+   margin-left: auto;
+   margin-right: auto;
+   padding-left: 24px;
+   padding-right: 24px;
+   padding-bottom: 24px;
+   display: flex;
+}
+
+.account-profile {
+   width: 602px;
+}
+
+.profile-header-image {
+   align-items: center;
+}
+
+.user-avatar {
+   width: 100px;
+   height: 100px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 100%;
+   overflow: hidden;
+}
+
+.edit-avatar {
+   position: absolute;
+   display: none;
+   width: 35px;
+   height: 35px;
+   justify-content: center;
+   align-items: center;
+   background-color: #2e69ff;
+   border-radius: 100%;
+   overflow: hidden;
+   cursor: pointer;
+}
+
+.user-avatar:hover .edit-avatar {
+   display: flex;
+}
+
+.user-name {
+   margin-left: 15px;
+}
+
+.user-name-group {
+   justify-content: flex-start;
+}
+
+#username {
+   font-weight: bold;
+   font-size: 24px;
+   color: black;
+}
+
+.name-edit {
+   font-size: 16px;
+   font-weight: 100;
+   display: none;
+   margin-left: 10px;
+   cursor: pointer;
+}
+
+.name-edit:hover {
+   text-decoration: underline;
+}
+
+.user-name-group:hover .name-edit {
+   display: block;
+}
+
+.user-avatar img {
+   width: 100px;
+   height: 100px;
+}
+
+.user-credential:hover,
+.user-description:hover {
+   text-decoration: underline;
+}
+
+.profile-header-description {
+   margin-top: 10px;
+}
+
+.profile-navbar {
+   height: 50px;
+   margin-top: 10px;
+   border-top: 2px solid rgba(1, 1, 1, 0.1);
+   border-bottom: 1px solid rgba(1, 1, 1, 0.1);
+}
+
+.navbar-element {
+   height: 50px;
+   font-size: 13px;
+   font-weight: 500;
+   padding: 12px 5px;
+   color: #939598;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.navbar-element:hover {
+   background-color: rgba(1, 1, 1, 0.04);
+}
+
+.account-infor {
+   width: 314px;
+   margin-left: 86px;
+}
+
+.account-credential {
+   width: 100%;
+}
+
+.credential-title {
+   padding-top: 8px;
+   padding-bottom: 8px;
+   font-size: 15px;
+   font-weight: 500;
+   border-bottom: 1px solid rgba(1, 1, 1, 0.1);
+   margin-bottom: 10px;
+}
+
+.credential-svg {
+   display: flex;
+   align-items: center;
+}
+
+.credential-text {
+   font-size: 13px;
+   color: rgb(25, 95, 170);
+   cursor: pointer;
+   margin-left: 10px;
+}
+.credential-text:hover {
+   text-decoration: underline;
+}
+
+.account-topic-title {
+   padding-top: 8px;
+   padding-bottom: 8px;
+   font-size: 15px;
+   font-weight: 500;
+   border-bottom: 1px solid rgba(1, 1, 1, 0.1);
+   margin-bottom: 10px;
+}
+
+.account-topic-element {
+   height: 40px;
+   display: flex;
+   justify-content: start;
+   align-items: center;
+   overflow: hidden;
+   font-size: 13px;
+}
+
+.img-topic-wrapper {
+   width: 32px;
+   height: 32px;
+   overflow: hidden;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 3px;
+   margin-right: 8px;
+}
+
+.img-topic-wrapper img {
+   width: 24px;
+   height: 24px;
+}
+
+.account-topic-button {
+   display: inline-flex;
+   cursor: pointer;
+   background-color: #f7f7f8;
+   font-size: 14px;
+   margin-top: 5px;
+   border-radius: 1000px;
+   padding: 5px 15px;
+   box-shadow: rgba(99, 100, 102, 0.2) 0px 0px 0px 1px inset;
+}
+
+.account-topic-button:hover {
+   background-color: rgba(1, 1, 1, 0.1);
+}
+
+.svg-wrapper {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-top: 3px;
+}
+
+#edit-description-modal {
+   display: none;
+   width: 100%;
+   border-radius: 3px;
+   border: 1px solid rgba(1, 1, 1, 0.2);
+   margin-top: 10px;
+   margin-bottom: 10px;
+}
+
+.edit-input-wrapper {
+   padding: 10px 8px;
+   font-size: 15px;
+   border-bottom: 1px solid rgba(1, 1, 1, 0.2);
+}
+
+.edit-input-wrapper textarea {
+   width: 100%;
+   box-shadow: none;
+   background-color: transparent;
+   padding: 0px;
+   outline: none;
+   border: none;
+   flex: 1 1 0%;
+   min-height: 26px;
+   overflow: hidden;
+   /* important */
+   overflow-wrap: break-word;
+   height: 52px;
+   font-size: 15px;
+   resize: none;
+   /* overflow-y: scroll; */
+   max-height: 300px;
+}
+
+.edit-button-wrapper {
+   background-color: #f7f7f8;
+   padding: 5px 15px;
+}
+
+.update-button {
+   padding: 5px 15px;
+   border-width: 0px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 13px;
+   font-weight: 500;
+   color: white;
+   background-color: #2e69ff;
+   border-radius: 1000px;
+   cursor: pointer;
+}
+
+.cancel-button {
+   padding: 5px 15px;
+   border-width: 0px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 13px;
+   font-weight: 500;
+   color: #939598;
+   border-radius: 1000px;
+   cursor: pointer;
+   margin-left: 10px;
+}
+
+.cancel-button:hover {
+   background-color: rgba(1, 1, 1, 0.04);
+}
+
+#user-answer-wrapper {
+    display: block
+}
+
+#user-question-wrapper {
+    display: none
+}
+
+#user-bookmark-wrapper {
+    display: none
+}

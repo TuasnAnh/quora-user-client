@@ -1,0 +1,51 @@
+html,
+body {
+   font-family: -apple-system, sytem-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+   font-size: 15px;
+   line-height: 1.4;
+   color: rgb(40, 40, 41);
+   background-color: #f1f2f2;
+   transition: background-color 0.5s ease;
+}
+
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+div {
+   display: block;
+}
+
+img {
+   border-style: none;
+   color: transparent;
+   border: 0;
+}
+
+a {
+   text-decoration: none;
+   color: #939598;
+   cursor: pointer;
+}
+
+button,
+input {
+   overflow: visible;
+   text-transform: none;
+}
+
+.text-bold {
+   font-weight: bold !important;
+}
+
+.flex-row {
+   display: flex;
+   align-items: center;
+}
+
+.flex-column {
+   display: flex;
+   flex-direction: column;
+}

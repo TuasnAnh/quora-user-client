@@ -1,0 +1,62 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 28, 2020, 11:49:39 AM
+    Author     : ADMIN
+*/
+
+.report-button-wrapper {
+   position: relative;
+}
+
+.report-extend {
+   outline: none;
+   position: absolute;
+   font-size: 13px;
+   /* width: 50px; */
+   display: none;
+   flex-direction: column;
+   justify-content: center;
+   bottom: 30px;
+   left: -30px;
+   background-color: white;
+   border-radius: 3px;
+   border: 1px solid rgba(1, 1, 1, 0.1);
+}
+
+.report-extend span {
+   padding: 5px 10px;
+   cursor: pointer;
+}
+
+.report-extend span:hover {
+   background-color: rgba(1, 1, 1, 0.05);
+}
+
+.report-question-extend {
+    outline: none;
+    position: absolute;
+    font-size: 13px;
+    /* width: 50px; */
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    bottom: 45px;
+    left: -10px;
+    z-index: 999;
+    background-color: white;
+    border-radius: 3px;
+    border: 1px solid rgba(1, 1, 1, 0.1);
+}
+
+.report-question-extend span {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.report-question-extend span:hover {
+    background-color: rgba(1, 1, 1, 0.05);
+}

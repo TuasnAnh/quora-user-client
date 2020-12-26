@@ -1,0 +1,40 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 28, 2020, 8:33:08 PM
+    Author     : ADMIN
+*/
+.question-block-content {
+   padding-top: 8px;
+   padding-bottom: 8px;
+   border-bottom: 1px solid rgba(1, 1, 1, 0.1);
+   background-color: white;
+   margin-bottom: 10px;
+}
+
+.question-header {
+   font-size: 14px;
+   color: #939598;
+}
+
+.question-block-content a:hover {
+   text-decoration: underline;
+}
+
+.question-content {
+   display: inline-block;
+   color: black;
+   font-size: 18px !important;
+   font-weight: bold !important;
+   margin-top: 5px !important;
+   margin-bottom: 5px !important;
+}
+
+#answer-amount {
+   font-size: 14px;
+   color: #939598;
+}
+

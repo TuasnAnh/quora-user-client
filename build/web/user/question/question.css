@@ -1,0 +1,201 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 28, 2020, 6:48:12 PM
+    Author     : ADMIN
+*/
+
+html,
+body {
+    background-color: white !important;
+}
+
+.question-wrapper {
+    position: relative;
+    margin-top: 60px;
+    width: 602px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.question-topic {
+    position: relative;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    font-size: 15px;
+    color: gray;
+}
+
+#question-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#topic-name {
+    margin-left: 10px;
+    padding: 3px 8px;
+    background-color: rgba(1, 1, 1, 0.06);
+}
+
+.question-interactive-button {
+    height: 50px;
+    padding-top: 1px;
+    border-bottom: 1px solid rgba(1, 1, 1, 0.2);
+    /* padding-left: 8px; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.question-report-wrapper {
+    position: relative;
+}
+
+.answer-button-wrapper {
+    cursor: pointer;
+    padding: 7px 10px;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.answer-button-wrapper span {
+    padding-left: 3px;
+    padding-bottom: 3px;
+}
+
+.answer-button-wrapper:hover {
+    background-color: rgba(1, 1, 1, 0.05);
+}
+
+.answer-button-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#write-answer-modal {
+    display: none;
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid rgba(1, 1, 1, 0.2);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.answer-input-function {
+   padding: 8px 12px;
+   border-bottom: 1px solid rgba(1, 1, 1, 0.2);
+}
+
+.answer-function {
+   width: 30px;
+   height: 30px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   overflow: hidden;
+   margin-right: 10px;
+   border-radius: 3px;
+   cursor: pointer;
+}
+
+.answer-function:hover {
+   background-color: rgba(1, 1, 1, 0.04);
+}
+
+.answer-input-wrapper {
+   padding: 10px 8px;
+   font-size: 15px;
+   border-bottom: 1px solid rgba(1, 1, 1, 0.2);
+   text-align: center;
+}
+
+#output {
+   width: 98%;
+   height: 200px;
+   margin: 0;
+   padding: 0;
+   border: none;
+   outline: none;
+}
+
+.answer-field-button-wrapper {
+    background-color: #f7f7f8;
+    padding: 5px 15px;
+}
+
+.submit-button {
+    padding: 5px 15px;
+    border-width: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 500;
+    color: white;
+    background-color: #2e69ff;
+    border-radius: 1000px;
+    cursor: pointer;
+}
+
+.cancel-button {
+    padding: 5px 15px;
+    border-width: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 500;
+    color: #939598;
+    border-radius: 1000px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.cancel-button:hover {
+    background-color: rgba(1, 1, 1, 0.04);
+}
+
+.questioin-report-button {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.questioin-report-button:hover {
+    background-color: rgba(1, 1, 1, 0.05);
+}
+
+#number-answer {
+    font-size: 15px;
+    font-weight: 500;
+    padding-left: 13px;
+    margin-top: 10px;
+    height: 34px;
+    border-bottom: 1px solid rgba(1, 1, 1, 0.2);
+}
+
+.answer-in-question-wrapper {
+    margin-left: 0 !important;
+    margin-bottom: 8px;
+    margin-top: 8px;
+    width: 602px;
+    margin-left: 30px;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    padding-bottom: 4px;
+    padding-top: 10px;
+    background-color: white;
+    border-bottom: 1px solid rgba(1, 1, 1, 0.2) !important;
+}

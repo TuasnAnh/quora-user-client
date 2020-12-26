@@ -1,0 +1,40 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 28, 2020, 8:33:31 PM
+    Author     : ADMIN
+*/
+
+.profile-sub-navbar {
+   height: 50px;
+   border-bottom: 1px solid rgba(1, 1, 1, 0.1);
+   font-size: 14px;
+   font-weight: 500;
+}
+
+.answer-in-account-page {
+   margin-left: 0 !important;
+   margin-bottom: 8px;
+   margin-top: 8px;
+   width: 602px;
+   margin-left: 30px;
+   padding-left: 16px;
+   padding-right: 16px;
+   position: relative;
+   padding-bottom: 4px;
+   padding-top: 10px;
+   background-color: white;
+   border-bottom: 1px solid rgba(1, 1, 1, 0.2) !important;
+}
+
+.answer-question {
+   font-size: 15px;
+   font-weight: bold;
+}
+
+.answer-question:hover {
+   text-decoration: underline;
+}

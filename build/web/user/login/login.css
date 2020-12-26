@@ -1,0 +1,202 @@
+.wrapper {
+   box-sizing: border-box;
+   width: 100%;
+   position: absolute;
+   min-height: 100%;
+   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px inset;
+   background-image: url(../../assets/bg.png);
+   background-position: center center;
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+
+body::-webkit-scrollbar {
+   display: none;
+}
+
+.container {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   padding-top: 24px;
+   padding-bottom: 24px;
+}
+
+.card-wrapper {
+   border-color: #dee0e1 !important;
+   border-style: solid;
+   border-width: 1px;
+   border-radius: 3px;
+   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+   background-color: #fff;
+}
+
+.card-content {
+   padding-top: 16px;
+}
+
+.card-content .card-header {
+   margin-bottom: 0px;
+}
+
+/* -------- card header style ---------- */
+
+.card-header_wrapper {
+   text-align: center;
+}
+
+.card-header_logo {
+   position: relative;
+   text-align: center;
+   top: -16px;
+}
+
+.logo {
+   width: 200px;
+}
+
+.card-header_slogan {
+   position: relative;
+   font-weight: bold;
+   top: -50px;
+   color: #636466;
+   vertical-align: inherit;
+   text-align: center;
+}
+
+/* -------- card content style ---------- */
+
+.card-content .card-body {
+   position: relative;
+   top: -16px;
+   display: flex;
+   width: 700px;
+   margin-bottom: 8px;
+}
+
+/* -------- register style ---------- */
+.register-wrapper {
+   width: 50%;
+   border-right-style: solid;
+   border-width: 1px;
+   border-color: #dee0e1;
+   padding-left: 24px;
+   padding-right: 24px;
+}
+
+.register-action-field {
+   align-items: center;
+   justify-content: space-between;
+   margin-bottom: 10px;
+}
+
+#register-route-button {
+   color: inherit;
+   font: inherit;
+   outline: none;
+   padding: 5px 10px;
+   width: 100%;
+   border-width: 0px;
+   background-color: transparent;
+   border-radius: 1000px;
+   cursor: pointer;
+   margin-bottom: 15px;
+}
+
+#register-route-button:hover {
+   background-color: rgba(1, 1, 1, 0.05);
+}
+
+.reistger-privacy {
+   padding-top: 10px;
+   font-size: 13px;
+   vertical-align: inherit;
+   color: #939598;
+   border-top: solid;
+   border-width: 1px;
+   border-color: #dee0e1;
+}
+
+.reistger-privacy a {
+   color: #939598;
+   text-decoration: underline;
+}
+
+/* -------- register style ---------- */
+
+.login-wrapper {
+   width: 50%;
+   padding-left: 24px;
+   padding-right: 24px;
+}
+
+.form-title {
+   padding-bottom: 10px;
+   margin-bottom: 16px;
+   border-bottom: solid;
+   border-width: 1px;
+   border-color: #dee0e1;
+}
+
+.row {
+   margin-bottom: 16px;
+}
+
+.login-action-field {
+   align-items: center;
+   justify-content: space-between;
+}
+
+.card-body input {
+   font-size: 15px;
+   margin-top: 10px;
+   padding-top: 12px;
+   padding-bottom: 12px;
+   padding-left: 10px;
+   padding-right: 10px;
+   outline: none !important;
+   border: 1px solid #dee0e1;
+   position: relative;
+   transition-duration: 180ms;
+   transition-timing-function: ease-in-out;
+   min-height: 45px;
+}
+
+.row input:focus {
+   border: 1px solid #2e69ff;
+   box-shadow: rgb(235, 240, 255) 0px 0px 0px 2px;
+}
+
+.action-button {
+   font-size: 13px !important;
+   font: inherit;
+   outline: none !important;
+   padding: 6px 20px !important;
+   border-width: 0px !important;
+   color: white;
+   border-radius: 1000px;
+   background-color: #2e69ff;
+}
+
+.card-body a:hover {
+   text-decoration: underline;
+}
+
+/* -------- card footer style ---------- */
+
+.card-content .card-footer {
+   position: relative;
+   border-top-style: solid;
+   border-width: 1px;
+   border-color: #dee0e1;
+   text-align: center;
+   background-color: #f1f2f2;
+   padding-top: 16px;
+   padding-bottom: 16px;
+   font-size: 13px;
+}
+
+.card-content .card-footer a:hover {
+   text-decoration: underline;
+}

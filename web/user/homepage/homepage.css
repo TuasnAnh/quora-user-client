@@ -1,0 +1,96 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 28, 2020, 11:23:19 AM
+    Author     : ADMIN
+*/
+
+.page-body {
+   display: relative;
+}
+
+/* -----------------------body new feed wrapper -------------------- */
+.body-wrapper {
+   width: 1002px;
+   margin-top: 50px;
+   margin-left: auto;
+   margin-right: auto;
+   padding-top: 30px;
+   padding-bottom: 24px;
+   padding-left: 24px;
+   padding-right: 24px;
+   align-items: stretch;
+   font-size: 15px;
+   display: flex;
+   flex-direction: row;
+}
+/* -----------------------end body new feed wrapper -------------------- */
+
+.newfeeds-section {
+   width: 602px;
+   margin-left: 30px;
+}
+
+.greeting-question {
+   border-color: #dee0e1 !important;
+   border-style: solid;
+   border-width: 1px;
+   border-radius: 3px;
+   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+   background-color: #fff;
+   margin-bottom: 8px;
+   outline: inherit;
+   padding: 0px;
+   width: 100%;
+   text-align: inherit;
+   cursor: pointer;
+   padding-top: 16px;
+   padding-left: 16px;
+   padding-right: 16px;
+   padding-bottom: 16px;
+   position: relative;
+}
+
+.greeting-header {
+   display: flex;
+   align-items: center;
+   margin-bottom: 8px;
+}
+
+.user-logo-wrapper {
+   display: inline-flex;
+   margin-right: 4px;
+   display: flex;
+   position: relative;
+   border-width: 2px;
+   border-style: none;
+   border-radius: 100%;
+   overflow: hidden;
+   margin-right: 10px;
+}
+
+.user-logo-image {
+   max-width: 100%;
+   position: relative;
+   width: 24px;
+   height: 24px;
+   min-width: 24px;
+   border-style: none;
+   border: 0;
+   color: transparent;
+}
+.user-name {
+   font-size: 13px;
+   color: #939598;
+}
+
+.greeting-content {
+   font-weight: bold;
+   line-height: 1.4;
+   font-size: 18px;
+   color: #939598;
+}
+

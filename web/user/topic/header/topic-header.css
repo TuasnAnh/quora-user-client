@@ -1,0 +1,69 @@
+.topic-infor {
+   height: 100px;
+   padding: 8px 12px;
+   border-color: #dee0e1 !important;
+   border-style: solid;
+   border-width: 1px;
+   border-radius: 3px;
+   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+   background-color: #fff;
+   margin-bottom: 10px;
+}
+
+.topic-avatar {
+   width: 80px;
+   height: 80px;
+   overflow: hidden;
+   border-radius: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.topic-avatar img {
+   height: 100%;
+}
+
+.topic-follow-wrapper {
+   padding: 5px 8px;
+   border-radius: 15px;
+   background-color: #ebf0ff;
+   border: 1px solid #2f6aff;
+   color: #2f6aff;
+   font-size: 15px;
+   cursor: pointer;
+}
+
+.topic-navbar {
+   height: 50px;
+   border-color: #dee0e1 !important;
+   border-style: solid;
+   border-width: 1px;
+   border-radius: 3px;
+   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+   background-color: #fff;
+   margin-bottom: 10px;
+}
+
+#topic-answer-nav,
+#topic-question-nav {
+   height: 100%;
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+}
+
+#topic-answer-nav:hover,
+#topic-question-nav:hover {
+   background-color: rgba(1, 1, 1, 0.04);
+}
+
+.topic-navbar span {
+   padding-left: 13px;
+   padding-right: 13px;
+}
+
+.topic-follow-text {
+   font-weight: 500;
+   margin-right: 4px;
+}
