@@ -4,12 +4,22 @@
  * and open the template in the editor.
  */
 
+//
+//function checkUserLogin() {
+//    const userid = localStorage.getItem("id");
+//    if(userid) {
+//        return userid;
+//    } else {
+//        window.location = contextPath;
+//    }
+//}
+import {API_URL, contextPath} from "../../js/global-variable.js";
 
-function checkUserLogin() {
-    const userid = localStorage.getItem("id");
-    if(userid) {
-        return userid;
-    } else {
-        window.location = contextPath;
-    }
+const firstLogin = localStorage.getItem("firstLogin");
+if (firstLogin) {
+    window.location = contextPath + "/user/homepage/homepage.jsp";
+} else {
+    window.location = contextPath + "/login.jsp";
 }
+
+

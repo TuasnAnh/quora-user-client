@@ -95,7 +95,7 @@ function accountNotVerified() {
 }
 
 function loginSuccess() {
-//    localStorage.setItem("first_login", true);
+    localStorage.setItem("firstLogin", true);
     window.location = contextPath + "/user/homepage/homepage.jsp";
 }
 
