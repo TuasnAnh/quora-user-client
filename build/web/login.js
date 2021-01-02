@@ -13,11 +13,10 @@ const password = document.getElementById("password");
 const passwordError = document.getElementById("pass-error");
 const passwordEmpty = document.getElementById("pass-empty");
 
-document.onload = function () {
-    if (localStorage.getItem("role") === "USER") {
+window.onload = function () {
+    if (localStorage.getItem("firstLogin")) {
         window.location = contextPath + "/user/homepage/homepage.jsp";
     }
-    // TODO: check role in cookie
 }
 
 let exit = false;

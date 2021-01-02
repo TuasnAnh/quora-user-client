@@ -89,40 +89,40 @@ body {
 }
 
 .answer-input-function {
-   padding: 8px 12px;
-   border-bottom: 1px solid rgba(1, 1, 1, 0.2);
+    padding: 8px 12px;
+    border-bottom: 1px solid rgba(1, 1, 1, 0.2);
 }
 
 .answer-function {
-   width: 30px;
-   height: 30px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   overflow: hidden;
-   margin-right: 10px;
-   border-radius: 3px;
-   cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-right: 10px;
+    border-radius: 3px;
+    cursor: pointer;
 }
 
 .answer-function:hover {
-   background-color: rgba(1, 1, 1, 0.04);
+    background-color: rgba(1, 1, 1, 0.04);
 }
 
 .answer-input-wrapper {
-   padding: 10px 8px;
-   font-size: 15px;
-   border-bottom: 1px solid rgba(1, 1, 1, 0.2);
-   text-align: center;
+    padding: 10px 8px;
+    font-size: 15px;
+    border-bottom: 1px solid rgba(1, 1, 1, 0.2);
+    text-align: center;
 }
 
 #output {
-   width: 98%;
-   height: 200px;
-   margin: 0;
-   padding: 0;
-   border: none;
-   outline: none;
+    width: 98%;
+    height: 200px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
 }
 
 .answer-field-button-wrapper {
@@ -198,4 +198,34 @@ body {
     padding-top: 10px;
     background-color: white;
     border-bottom: 1px solid rgba(1, 1, 1, 0.2) !important;
+}
+
+
+/* end of page*/
+.end-of-page {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.load-more-button {
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    background-color: #b92b27;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.load-more-button:hover {
+    background-color: #de1f19;
+}
+
+.load-more-button span {
+    padding: 5px 12px;
 }

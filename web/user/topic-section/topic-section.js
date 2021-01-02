@@ -5,6 +5,9 @@
  * and open the template in the editor.
  */
 //
+import {checkTokenExpired} from "../user-global-js/checkUserLogin.js";
+import {API_URL} from "../../js/global-variable.js";
+import {htmlToElements} from "../user-global-js/htmlToElement.js";
 
 window.onload = getFollowedTopic();
 
@@ -28,27 +31,27 @@ function createFollowedTopicCards(topics) {
     }
 }
 
-async function getFollowedTopic() {
-    const userId = checkUserLogin();
+function getFollowedTopic() {
 
-    await $.ajax({
-        type: "POST",
-        url: `${contextPath}/TopicServlet`,
-        contentType: "application/json",
-        data: JSON.stringify({userId: userId, context: "getFollowedTopic"}),
-        success: function (response) {
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", `${API_URL}/user/followed-topic`, true);
+    xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest"); // Prevent CSRF attacks
+    xhr.setRequestHeader('Accept', 'application/json; charset=utf-8');
+    xhr.setRequestHeader('Content-type', "application/x-www-form-urlencoded; charset=utf-8");
+    xhr.onreadystatechange = function (e) {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const response = JSON.parse(xhr.responseText);
+//            resolve(response);
             console.log(response);
+            checkTokenExpired(response);
             createFollowedTopicCards(response);
         }
-    });
+    };
+
+    xhr.send();
+
 }
 
-
-function htmlToElements(html) {
-    const template = document.createElement('template');
-    template.innerHTML = html;
-    return template.content.childNodes;
-}
 
 
 

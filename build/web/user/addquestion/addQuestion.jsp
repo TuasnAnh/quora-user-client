@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="../user-global-css/addQuestion.css" rel="stylesheet"/>
         <link href="../user-global-css/globalStyle.css" rel="stylesheet"/>
-        <title>JSP Page</title>
+        <title></title>
     </head>
     <body>
         <div id="addquestion-container">
@@ -71,5 +71,5 @@
             </div>
         </div>
     </body>
-    <script src="../addquestion/addQuestion.js" ></script>
+    <script src="../addquestion/addQuestion.js" type="module"></script>
 </html>

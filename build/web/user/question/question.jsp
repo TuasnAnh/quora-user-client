@@ -15,11 +15,6 @@
         <link href="../homepage/answer-card/reportExtend.css" rel="stylesheet" />
 
         <script src="../homepage/answer-card/reportExtend.js" ></script>
-        <script src="../homepage/answer-card/answer-card.js" ></script>
-        <script src="../user-global-js/showReportSuccess.js"></script>
-        <script src="../user-global-js/upvoteAndDownVoteAnswer.js" ></script>
-
-        <script src="../../js/jquery.js"></script>
 
         <title>Question</title>
     </head>
@@ -30,11 +25,11 @@
             <div class="question-wrapper">
                 <div class="question-topic flex-row">
                     <span>Topic:</span>
-                    <span id="topic-name">American politics</span>
+                    <span id="topic-name"></span>
                 </div>
-                <span id="question-title">Who is the bravest in Kpop from the 4th generation ?</span>
+                <span id="question-title"></span>
                 <div class="question-interactive-button">
-                    <div class="answer-button-wrapper" onclick="openAnswerModel()">
+                    <div class="answer-button-wrapper">
                         <div class="answer-button-icon">
                             <svg width="24px" height="24px" viewBox="0 0 24 24">
                             <g id="" transform="translate(2.500000, 3.500000)" stroke="none" stroke-width="1.5" fill="none" fill-rule="evenodd">
@@ -70,20 +65,6 @@
                             </svg>
                         </div>
                         <span>Answer</span>
-                    </div>
-                    <div class="question-report-wrapper">
-                        <div class="questioin-report-button" onclick="showQuestionReportExtend('1')">
-                            <svg width="24px" height="24px" viewBox="0 0 24 24">
-                            <g id="" class="icon_svg-stroke" stroke-width="1.5" stroke="#666" fill="none" fill-rule="evenodd">
-                            <path
-                                d="M5,14 C3.8954305,14 3,13.1045695 3,12 C3,10.8954305 3.8954305,10 5,10 C6.1045695,10 7,10.8954305 7,12 C7,13.1045695 6.1045695,14 5,14 Z M12,14 C10.8954305,14 10,13.1045695 10,12 C10,10.8954305 10.8954305,10 12,10 C13.1045695,10 14,10.8954305 14,12 C14,13.1045695 13.1045695,14 12,14 Z M19,14 C17.8954305,14 17,13.1045695 17,12 C17,10.8954305 17.8954305,10 19,10 C20.1045695,10 21,10.8954305 21,12 C21,13.1045695 20.1045695,14 19,14 Z"
-                                ></path>
-                            </g>
-                            </svg>
-                        </div>
-                        <div tabindex="-2" id="report-question-extend-1" class="report-question-extend">
-                            <span onclick="showReportSuccess()">Report</span>
-                        </div>
                     </div>
                 </div>
                 <div id="write-answer-modal">
@@ -136,103 +117,31 @@
                         <iframe id="output" name="textField"></iframe>
                     </div>
                     <div class="answer-field-button-wrapper flex-row">
-                        <div class="submit-button" onclick="submitAnswer()">
+                        <div class="submit-button">
                             <span>Update</span>
                         </div>
-                        <div class="cancel-button" onclick="cancelAnswer()">
+                        <div class="cancel-button">
                             <span>Cancel</span>
                         </div>
                     </div>
                 </div>
-                <div id="number-answer">2 Answers</div>
-                <!---------------------answer in question-------------------->
-                <div class="answer-in-question-wrapper">
-                    <div class="answer-poster-infor">
-                        <div class="poster-avatar">
-                            <img class="poster-avatar-image" src="../../assets/mark.jpg" alt="" />
-                        </div>
-                        <div class="poster-infor">
-                            <div class="flex-row">
-                                <div class="poster-name">Dang Tuan Anh</div>
-                                &nbsp<span>·</span>&nbsp
-                                <span style="color: #939598">October 15, 2020</span>
-                            </div>
-                            <div class="poster-description">
-                                <span>4th years student at PTIT</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="answer-content">
-                        <div class="answer-full-content">
-                            <span
-                                >Due to the confluence of several reasons: Half of Americans long for a fantasy past, while the other half long for a fantasy
-                                future:<a id="dots-1" style="cursor: pointer; color: #2e69ff" onclick="hideDotes({postid: 1})"> . . . more</a>
-                                <span id="more-1" style="display: none">
-                                    <br />
-                                    <img src="../../assets/answer-image-1.jpg" alt="" /> <br /><br />
-                                    Nobody wants to compromise, despite total agreement that there SHOULD be compromise:<br /><br />
-                                    <img src="../../assets/answer-image-2.jpg" alt="" /> <br /><br />
-                                </span>
-                            </span>
-                        </div>
-                        <div class="answer-demo-image" onclick="hideDotes({postid: 1})">
-                            <img src="../../assets/answer-image-1.jpg" alt="" />
-                        </div>
-                    </div>
-                    <div class="answer-interactive-button flex-row">
-                        <div class="interactive-button flex-row">
-                            <div class="upvote-button flex-row">
-                                <div class="upvote-button-svg" onclick="upvote({postid: 1, userid: 1})">
-                                    <svg width="24px" height="24px" viewBox="0 0 24 24">
-                                    <g id="upvotesvg-1" stroke-width="1.5" stroke="#666" fill="none" fill-rule="evenodd" stroke-linejoin="round">
-                                    <polygon points="12 4 3 15 9 15 9 20 15 20 15 15 21 15"></polygon>
-                                    </g>
-                                    </svg>
-                                </div>
-                                <div id="upvote-num-1" class="vote-number">10</div>
-                            </div>
-                            <div class="downvote-button flex-row">
-                                <div class="downvote-button-svg" onclick="downvote({postid: 1, userid: 1})">
-                                    <svg width="24px" height="24px" viewBox="0 0 24 24">
-                                    <g id="downvotesvg-1" stroke="#666" fill="none" stroke-width="1.5" fill-rule="evenodd" stroke-linejoin="round">
-                                    <polygon
-                                        transform="translate(12.000000, 12.000000) rotate(-180.000000) translate(-12.000000, -12.000000) "
-                                        points="12 4 3 15 9 15 9 20 15 20 15 15 21 15"
-                                        ></polygon>
-                                    </g>
-                                    </svg>
-                                </div>
-                                <div id="downvote-num-1" class="vote-number-1">10</div>
-                            </div>
-                        </div>
-                        <div class="report-button-wrapper">     
-                            <div class="report-button" onclick="showReportExtend('1')">
-                                <div class="report-button-svg">
-                                    <svg width="24px" height="24px" viewBox="0 0 24 24">
-                                    <g id="reportsvg" stroke-width="1.5" stroke="#666" fill="none" fill-rule="evenodd">
-                                    <path
-                                        d="M5,14 C3.8954305,14 3,13.1045695 3,12 C3,10.8954305 3.8954305,10 5,10 C6.1045695,10 7,10.8954305 7,12 C7,13.1045695 6.1045695,14 5,14 Z M12,14 C10.8954305,14 10,13.1045695 10,12 C10,10.8954305 10.8954305,10 12,10 C13.1045695,10 14,10.8954305 14,12 C14,13.1045695 13.1045695,14 12,14 Z M19,14 C17.8954305,14 17,13.1045695 17,12 C17,10.8954305 17.8954305,10 19,10 C20.1045695,10 21,10.8954305 21,12 C21,13.1045695 20.1045695,14 19,14 Z"
-                                        ></path>
-                                    </g>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div tabindex="-2" id="report-extend-1" class="report-extend">
-                                <span onclick="showAddBookmarkSuccess()">Bookmarks</span>
-                                <span onclick="showReportSuccess()">Report</span>
-                            </div>
-                        </div>
+                <div id="number-answer"></div>
+
+                <div class="question-answer-wrapper">
+                </div>
+
+                <div class="end-of-page">
+                    <div class="load-more-button">
+                        <span>Load more answers</span>
                     </div>
                 </div>
-                <!--------------------- end of answer in question-------------------->
-
             </div>
         </div>
     </body>
-    <script src="question.js" ></script>
-
+    <script src="question.js" type="module"></script>
+    <script src="addAnswer.js" type="module"></script>
     <script>
-                                    setGray();
+        setGray();
     </script>
 
 </html>

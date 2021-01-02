@@ -88,7 +88,7 @@
                                         <span id="pass-empty">Password cannot be empty</span>
                                     </div>
                                     <div class="login-action-field flex-row">   
-                                        <a href="#" style="font-size: 13px">Forgot password ?</a>
+                                        <a href="user/forgotPassword/emailPage.jsp" style="font-size: 13px">Forgot password ?</a>
                                         <input id="login-button" class="action-button text-bold" type="submit" value="To log in" />
                                     </div>
                                 </div>

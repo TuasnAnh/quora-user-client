@@ -67,10 +67,37 @@ and open the template in the editor.
    color: #939598;
 }
 
-#topic-answer-section {
+#topic-answer-content {
     display: block;
 }
-#topic-question-section {
+#topic-question-content {
     display: none;
 }
 
+/*end of page style*/
+.end-of-page {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.load-more {
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    background-color: #b92b27;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.load-more:hover {
+    background-color: #de1f19;
+}
+
+.load-more span {
+    padding: 5px 12px;
+}

@@ -65,7 +65,7 @@ registerButton.onclick = async function () {
         }
     }
     exitRe = false;
-
+    
 }
 
 function register() {

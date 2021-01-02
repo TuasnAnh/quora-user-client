@@ -3,236 +3,235 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-const cloudinaryUrl = "https://api.cloudinary.com/v1_1/tuasnanh/image/upload";
-const cloudinary_upload_preset = "dutgkogi";
-const fileUpload = document.getElementById("file-upload");
-const list = [];
-const answerModal = document.getElementById("write-answer-modal");
+
+import {API_URL, contextPath} from "../../js/global-variable.js";
+import {checkTokenExpired} from "../user-global-js/checkUserLogin.js";
+import {htmlToElements} from "../user-global-js/htmlToElement.js";
+import {setHideAction} from "../homepage/answer-card/answer-card.js";
+import {upvote, downvote} from "../user-global-js/upvoteAndDownVoteAnswer.js";
+import {addToBookmark} from "../user-global-js/addBookmark.js";
+import {reportAnswer} from "../user-global-js/reportAnswer.js";
+
+const questionPage = document.querySelector(".question-answer-wrapper");
 const params = (new URL(window.location.href)).searchParams;
 const questionId = params.get("questionId");
-console.log(questionId);
+let page = 1;
+let answerList = [];
 
-// check change of textField
-const boldButton = document.getElementById("bold-button");
-console.log(textField);
-
-
-textField.document.designMode = "On";
-
-boldButton.addEventListener("click", () => {
-    let cmd = boldButton.getAttribute("data-cmd");
-    if (boldButton.name === "active") {
-        boldButton.classList.toggle("active");
+let isGetting = false;
+document.querySelector(".load-more-button").onclick = async function () {
+    if (!isGetting) {
+        isGetting = true;
+        getAnswerQuestion();
+        isGetting = false;
     }
+};
 
-    textField.document.execCommand(cmd, false, null);
-});
 
-let openAnswer = false;
-
-function openAnswerModel() {
-    if (!openAnswer) {
-        openAnswer = true;
-        answerModal.style.display = "block";
-    }
+window.onload = function () {
+    getQuestionInfor();
+    getAnswerQuestion();
 }
 
-function cancelAnswer() {
-    answerModal.style.display = "none";
-    openAnswer = false;
-}
-
-fileUpload.addEventListener("change", function (event) {
-    const file = event.target.files[0];
-    // console.log(file);
-    if ((file.type === "image/png" || file.type === "image/jpeg") && file.size < 1024 * 1024) {
-        document.getElementById("output").contentWindow.document.body.focus();
-        const url = URL.createObjectURL(file);
-        list.push({name: url, file: file});
-
-        if (url) {
-            const imgC = "<img id='img' src='" + url + "' ></img>";
-            textField.document.execCommand("insertHTML", false, imgC);
-            const img = textField.document.querySelectorAll("img");
-            img.forEach((element) => {
-                element.style.maxWidth = "100%";
-            });
+function getQuestionInfor() {
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", `${API_URL}/user/question-information`, true);
+    xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest"); // Prevent CSRF attacks
+    xhr.setRequestHeader('Accept', 'application/json; charset=utf-8');
+    xhr.setRequestHeader('Content-type', "application/x-www-form-urlencoded; charset=utf-8");
+    xhr.onreadystatechange = function (e) {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const response = JSON.parse(xhr.responseText);
+            checkTokenExpired(response);
+            console.log(response);
+            document.getElementById("topic-name").innerHTML = response.topicName;
+            document.getElementById("question-title").innerHTML = response.content;
+            document.getElementById("number-answer").innerHTML = response.totalAnswer + " Answers";
         }
+    };
+
+    xhr.send(JSON.stringify({questionId}));
+}
+
+function getAnswerQuestion() {
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", `${API_URL}/user/answer-in-question`, true);
+    xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest"); // Prevent CSRF attacks
+    xhr.setRequestHeader('Accept', 'application/json; charset=utf-8');
+    xhr.setRequestHeader('Content-type', "application/x-www-form-urlencoded; charset=utf-8");
+    xhr.onreadystatechange = function (e) {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const response = JSON.parse(xhr.responseText);
+            checkTokenExpired(response);
+            console.log(response);
+            addQuestionAnswerCard(response);
+        }
+    };
+
+    let lastId;
+    if (answerList.length > 0) {
+        lastId = answerList[answerList.length - 1];
     } else {
-        console.log("not an image or image size too large");
+        lastId = -1;
     }
-});
+    xhr.send(JSON.stringify({lastId, questionId}));
+//    xhr.send(JSON.stringify(data));
+}
 
-// get all content after submit
-async function getAllContent() {
-    const customId = `${Date.now()}`;
-    // console.log("customId: " + customId);
-    const images = textField.document.querySelectorAll("img");
-    for (let i = 0; i < images.length; i++) {
-        for (let j = 0; j < list.length; j++) {
-            if (images[i].src === list[j].name) {
-                const formData = new FormData();
-                formData.append("file", list[j].file);
-                formData.append("upload_preset", cloudinary_upload_preset);
-                formData.append("folder", "quora answer");
 
-                // await postToCloudinary(formData, images[i]);
-                const url = await uploadFileCloudinary(formData);
-                images[i].src = url;
-            }
+function addQuestionAnswerCard(answers) {
+    for (let i = 0; i < answers.length; i++) {
+        const a = answers[i];
+        let userUrl = "../../assets/mark.jpg";
+        let userCredential = "";
+        let answerDemo = "../../assets/answer-image-1.jpg";
+        let upvoteStyle = "none";
+        let downvoteStyle = "none";
+        let bookmarkStyle = "black";
+        let bookmarkState = "Bookmark";
+        if (a.url) {
+            userUrl = a.url;
         }
-    }
 
-    console.log(nodeToString(addHideDote(customId)));
-    const answerContent = nodeToString(addHideDote(customId));
+        if (a.authorCredential) {
+            userCredential = a.authorCredential;
+        }
+
+        const hasImage = a.content.match(/https:[/]+res.cloudinary.com[\w\d/!@#$%^&*();:.,><?]+/g);
+        if (hasImage !== null) {
+            answerDemo = hasImage[0];
+        }
+
+        if (a.isUpvote)
+            upvoteStyle = "rgb(46, 105, 255)";
+        if (a.isDownvote)
+            downvoteStyle = "rgb(46, 105, 255)";
+        if (a.isBookmarked) {
+            bookmarkStyle = "blue";
+            bookmarkState = "Bookmarked";
+        }
+
+        answerList.push(a.answerId);
+        const answer = '<div id="answer-' + a.answerId + '" class="answer-in-question-wrapper">\n\
+                        <div class="answer-header">\n\
+                            <div class="header-infor flex-row">\n\
+                                <p>Answer</p>\n\
+                                <p>&nbsp·&nbsp</p>\n\
+                                <a href="' + contextPath + "/user/topic/topic.jsp?topicId=" + a.topicId + '">' + a.topicName + '</a>\n\
+                            </div>\n\
+                        </div>\n\
+                        <div class="answer-poster-infor">\n\
+                            <div class="poster-avatar">\n\
+                                <img class="poster-avatar-image" src="' + userUrl + '" alt="" />\n\
+                            </div>\n\
+                            <div class="poster-infor">\n\
+                                <div class="flex-row">\n\
+                                    <a style="color:black" href="../account/account.jsp?id=' + a.authorId + '" class="poster-name">' + a.authorName + '</a>\n\
+                                    &nbsp<span>·</span>&nbsp\n\
+                                    <span style="color: #939598">' + a.time.split(" ")[0] + '</span>\n\
+                                </div>\n\
+                                <div class="poster-description">\n\
+                                    <span>' + userCredential + '</span>\n\
+                                </div>\n\
+                            </div>\n\
+                        </div>\n\
+                        <div class="answer-content">\n\
+                            <div class="answer-title">\n\
+                                <a href="../question/question.jsp?questionId=' + a.questionId + '" style="color: black">' + a.question + '</a>\n\
+                            </div>\n\
+                            <div class="answer-full-content">' + a.content + '</div>\n\
+                            <div class="answer-demo-image" id="demo-image-' + a.questionId + '">\n\
+                                <img src="' + answerDemo + '" alt="" />\n\
+                            </div>\n\
+                        </div>\n\
+                        <div class="answer-interactive-button flex-row">\n\
+                            <div class="interactive-button flex-row">\n\
+                                <div class="upvote-button flex-row">\n\
+                                    <div style="cursor: pointer;" class="upvote-button-svg-' + a.answerId + '">\n\
+                                        <svg width="24px" height="24px" viewBox="0 0 24 24">\n\
+                                        <g\n\
+                                            id="upvotesvg-' + a.answerId + '"\n\
+                                            stroke-width="1.5"\n\
+                                            stroke="rgb(46, 105, 255)"\n\
+                                            fill="' + upvoteStyle + '"\n\
+                                            fill-rule="evenodd"\n\
+                                            stroke-linejoin="round"\n\
+                                            >\n\
+                                        <polygon points="12 4 3 15 9 15 9 20 15 20 15 15 21 15"></polygon>\n\
+                                        </g>\n\
+                                        </svg>\n\
+                                    </div>\n\
+                                    <span id="upvote-num-' + a.answerId + '" class="vote-number">' + a.upvote + '</span>\n\
+                                </div>\n\
+                                <div class="downvote-button flex-row">\n\
+                                    <div style="cursor: pointer;" class="downvote-button-svg-' + a.answerId + '">\n\
+                                        <svg width="24px" height="24px" viewBox="0 0 24 24">\n\
+                                        <g\n\
+                                            id="downvotesvg-' + a.answerId + '"\n\
+                                            stroke="rgb(46, 105, 255)"\n\
+                                            fill="' + downvoteStyle + '"\n\
+                                            stroke-width="1.5"\n\
+                                            fill-rule="evenodd"\n\
+                                            stroke-linejoin="round"\n\
+                                            >\n\
+                                        <polygon\n\
+                                            transform="translate(12.000000, 12.000000) rotate(-180.000000) translate(-12.000000, -12.000000) "\n\
+                                            points="12 4 3 15 9 15 9 20 15 20 15 15 21 15"\n\
+                                            ></polygon>\n\
+                                        </g>\n\
+                                        </svg>\n\
+                                    </div>\n\
+                                    <span id="downvote-num-' + a.answerId + '" class="vote-number">' + a.downvote + '</span>\n\
+                                </div>\n\
+                            </div>\n\
+                            <div class="report-button-wrapper">\n\
+                                <div class="report-button" onclick="showReportExtend(' + a.answerId + ')">\n\
+                                    <div class="report-button-svg">\n\
+                                        <svg width="24px" height="24px" viewBox="0 0 24 24">\n\
+                                        <g id="reportsvg" stroke-width="1.5" stroke="#666" fill="none" fill-rule="evenodd">\n\
+                                        <path\n\
+                                            d="M5,14 C3.8954305,14 3,13.1045695 3,12 C3,10.8954305 3.8954305,10 5,10 C6.1045695,10 7,10.8954305 7,12 C7,13.1045695 6.1045695,14 5,14 Z M12,14 C10.8954305,14 10,13.1045695 10,12 C10,10.8954305 10.8954305,10 12,10 C13.1045695,10 14,10.8954305 14,12 C14,13.1045695 13.1045695,14 12,14 Z M19,14 C17.8954305,14 17,13.1045695 17,12 C17,10.8954305 17.8954305,10 19,10 C20.1045695,10 21,10.8954305 21,12 C21,13.1045695 20.1045695,14 19,14 Z"\n\
+                                            ></path>\n\
+                                        </g>\n\
+                                        </svg>\n\
+                                    </div>\n\
+                                </div>\n\
+                                <div tabindex="-2" id="report-extend-' + a.answerId + '" class="report-extend">\n\
+                                    <span style="color: ' + bookmarkStyle + '" id="add-bookmark-' + a.answerId + '">' + bookmarkState + '</span>\n\
+                                    <span id="report-answer-' + a.answerId + '">Report</span>\n\
+                                </div>\n\
+                            </div>\n\
+                        </div>\n\
+                    </div>';
+        questionPage.appendChild(htmlToElements(answer)[0]);
+        // set show hide action
+        setHideAction(a.questionId);
+//         set upvote , downvote action
+        setVoteAction(a.answerId);
+        // set add to bookamrk action
+        setBookmarkAction(a.answerId);
+        // set report action
+        setReportAction(a.answerId);
+    }
 }
 
-// global function
-function setHideAction() {
-    const hides = document.querySelectorAll("[id^='dots-']");
-    for (let i = 0; i < hides.length; i++) {
-        const id = hides[i].getAttribute("id");
-        const customId = id.split("-")[1];
-        // console.log(customId);
-        hides[i].addEventListener("click", function () {
-            hideDotes({postid: `${customId}`});
-        });
-    }
-}
-
-// post image to cloudinary
-function uploadFileCloudinary(formData) {
-    return new Promise((resolve) => {
-        const xhr = new XMLHttpRequest();
-        xhr.open("POST", cloudinaryUrl, true);
-        xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest"); // Prevent CSRF attacks
-
-        xhr.onreadystatechange = function (e) {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                const response = JSON.parse(xhr.responseText);
-                const url = response.secure_url;
-                resolve(url);
-            }
-        };
-
-        xhr.send(formData);
+function setVoteAction(answerId) {
+    document.querySelector(".upvote-button-svg-" + answerId).addEventListener("click", function () {
+        upvote(answerId);
+    });
+    document.querySelector(".downvote-button-svg-" + answerId).addEventListener("click", function () {
+        downvote(answerId);
     });
 }
 
-// add hide dote to body content
-function addHideDote(customId) {
-    const content = textField.document.querySelector("body");
-    const all = textField.document.body.getElementsByTagName("*");
-
-    const firstText = textField.document.body.childNodes[0].data;
-    console.log(firstText);
-
-    if (!firstText && all[0].tagName === "IMG") {
-        const hide = document.createElement("a");
-        hide.setAttribute("id", `dots-${customId}`);
-        hide.style.cursor = "pointer";
-        hide.style.color = "#2e69ff";
-        hide.innerHTML = ". . . more";
-        // hide.onclick = hideDotes({ postid: `${customId}` });
-
-        const more = document.createElement("span");
-        more.setAttribute("id", `more-${customId}`);
-        more.style.display = "none";
-        more.innerHTML = content.innerHTML;
-        // more.appendChild(content.cloneNode());
-
-        const wrapper = document.createElement("span");
-        wrapper.appendChild(hide);
-        wrapper.appendChild(more);
-        console.log("co anh o dau trang");
-        console.log(wrapper);
-        return wrapper;
-    } else if (!firstText && all[0].tagName !== "IMG") {
-        const hide = document.createElement("a");
-        hide.setAttribute("id", `dots-${customId}`);
-        hide.style.cursor = "pointer";
-        hide.style.color = "#2e69ff";
-        hide.innerHTML = ". . . more";
-        // hide.onclick = hideDotes({ postid: `${customId}` });
-
-        const more = document.createElement("span");
-        more.setAttribute("id", `more-${customId}`);
-        more.style.display = "none";
-        for (let i = 1; i < all.length; i++) {
-            // console.log(all[i]);
-            more.appendChild(all[i]);
-            // more.innerHTML = all[i].innerHTML;
-        }
-
-        const wrapper = document.createElement("span");
-        wrapper.appendChild(all[0]);
-        // wrapper.innerHTML = all[0].innerHTML;
-        wrapper.appendChild(hide);
-        wrapper.appendChild(more);
-
-        console.log("Co 1 div o dau trang");
-        console.log(wrapper);
-        return wrapper;
-    } else {
-        const hide = document.createElement("a");
-        hide.setAttribute("id", `dots-${customId}`);
-        hide.style.cursor = "pointer";
-        hide.style.color = "#2e69ff";
-        hide.innerHTML = ". . . more";
-        // hide.onclick = hideDotes({ postid: `${customId}` });
-
-        const more = document.createElement("span");
-        more.setAttribute("id", `more-${customId}`);
-        more.style.display = "none";
-        for (let i = 0; i < all.length; i++) {
-            // console.log(all[i]);
-            more.appendChild(all[i]);
-            // more.innerHTML = all[i].innerHTML;
-        }
-
-        const wrapper = document.createElement("span");
-        const firstTextDiv = document.createElement("span");
-        firstTextDiv.innerHTML = firstText;
-        wrapper.appendChild(firstTextDiv);
-        wrapper.appendChild(hide);
-        wrapper.appendChild(more);
-
-        console.log("khong co anh o dau trang + khong co div nao");
-        console.log(wrapper);
-        return wrapper;
-    }
+function setBookmarkAction(answerId) {
+    document.getElementById("add-bookmark-" + answerId).addEventListener("click", function () {
+        addToBookmark(answerId);
+    });
 }
 
-function nodeToString(node) {
-    var tmpNode = document.createElement("div");
-    tmpNode.appendChild(node.cloneNode(true));
-    var str = tmpNode.innerHTML;
-    tmpNode = node = null; // prevent memory leaks in IE
-    return str;
+function setReportAction(answerId) {
+    document.getElementById("report-answer-" + answerId).addEventListener("click", function () {
+        reportAnswer(answerId);
+    });
 }
-
-
-// hide dote - global function
-function hideDotes( { postid }) {
-    console.log("clicked");
-    var dots = document.getElementById(`dots-${postid}`);
-    var moreText = document.getElementById(`more-${postid}`);
-
-    dots.style.display = "none";
-    moreText.style.display = "block";
-}
-
-function clearInput() {
-    list.length = 0;
-    const output = document.getElementById("output");
-    output.contentWindow.document.body.innerHTML = "";
-}
-
-async function submitAnswer() {
-    await getAllContent();
-    clearInput();
-    cancelAnswer();
-}
-
-
-

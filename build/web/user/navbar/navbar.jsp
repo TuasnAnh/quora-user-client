@@ -14,8 +14,7 @@
         <link rel="stylesheet" href="../user-global-css/globalStyle.css" />
         <link rel="stylesheet" href="../navbar/accountExtend.css" />
         <link rel="stylesheet" href="../navbar/reportNotification.css" />
-        <script src="../user-global-js/globalScript.js" type="text/javascript"></script>
-        
+
         <title>Nav bar</title>
     </head>
     <body>
@@ -102,13 +101,13 @@
                         <a class="user-wrapper" onclick="showAccountExtend()">
                             <div class="user-container">
                                 <div class="user-content">
-                                    <img class="user-image" src="../../assets/mark.jpg" alt="" />
+                                    <img class="user-image" id="avatar" src="../../assets/mark.jpg" alt="" />
                                 </div>
                             </div>
                         </a>
                         <div tabindex="-1" id="account-extend">
-                            <a class="extend-header" href="../account/account.jsp">
-                                <span id="extend-username">Đặng Tuấn Anh</span>
+                            <a class="extend-header" href="../profile/profile.jsp">
+                                <span id="extend-username"></span>
                                 <div class="extend-svg">
                                     <svg width="24px" height="24px" viewBox="0 0 24 24">
                                     <g class="icon_svg-stroke" stroke="#666" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round">
@@ -123,13 +122,13 @@
                             </a>
                             <div class="extend-body">
                                 <a href="../setting/setting.jsp">Setting</a>
-                                <a href="#">Logout</a>
+                                <a id="logout-button" href="">Logout</a>
                             </div>
                         </div>
                     </div>
                     <button class="add-question-button">
                         <div class="question-button-wrapper">
-                            <div class="question-button-content" onclick="showAddQuestionModel()">Add Question</div>
+                            <div class="question-button-content">Add Question</div>
                         </div>
                     </button>
                 </div>
@@ -140,7 +139,8 @@
 
     </body>
     <script src="../navbar/navbar.js"></script>
-    <script src="../navbar/accountExtend.js" type="text/javascript"></script>
-    <script>
-    </script>
+    <script src="../navbar/accountExtend.js"></script>
+    <script src="../navbar/userInfor.js" type="module" ></script>
+    <script src="../navbar/logout.js" type="module" ></script>
+
 </html>

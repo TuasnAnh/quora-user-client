@@ -16,30 +16,6 @@
         <div class="topic-section">
             <!----------------- topic block ------------------>
             <div class="topic-section-content">
-                <div class="topic-block-wrapper">
-                    <a href="../topic/topic.jsp" class="topic-block-container">
-                        <div class="topicicon-wrapper">
-                            <div class="topicicon-container">
-                                <img class="topicicon-image" src="../../assets/mark.jpg" alt="" />
-                            </div>
-                        </div>
-                        <div class="topic-name">
-                            <div>Webside</div>
-                        </div>
-                    </a>
-                </div>
-                <div class="topic-block-wrapper">
-                    <a href="../topic/topic.jsp" class="topic-block-container">
-                        <div class="topicicon-wrapper">
-                            <div class="topicicon-container">
-                                <img class="topicicon-image" src="../../assets/mark.jpg" alt="" />
-                            </div>
-                        </div>
-                        <div class="topic-name">
-                            <div>Webside Programming</div>
-                        </div>
-                    </a>
-                </div>
             </div>
             <!----------------- end topic block ------------------>
             <a href="../discovery/discovery.jsp" class="discover-topic-button">
@@ -71,5 +47,5 @@
             </div>
         </div>
     </body>
-    <script src="../topic-section/topic-section.js" ></script>
+    <script src="../topic-section/topic-section.js" type="module"></script>
 </html>
