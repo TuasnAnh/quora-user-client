@@ -18,15 +18,12 @@
             <div class="filter-header">Filters</div>
             <a href="question-notification.jsp" id="filter-question" >
                 <span>Questions</span>
-                <span>0</span>
             </a>
             <a href="answer-notification.jsp" id="filter-answer">
                 <span>Answers</span>
-                <span>0</span>
             </a>
             <a href="admin-notification.jsp" id="filter-announcements">
                 <span>Announcements</span>
-                <span>0</span>
             </a>
         </div>
     </body>

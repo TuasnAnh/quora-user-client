@@ -66,36 +66,33 @@
                                 </svg>
                             </div>
                             <div id="notice-txt" class="header-text">Notification</div>
+                            <div class="unseen-wrapper">
+                                <span id="total-unseen"></span>
+                            </div>
                         </div>
                     </a>
                     <div class="search-field">
-                        <form autocomplete="false">
-                            <div class="form-wrapper">
-                                <div>
-                                    <div class="form-container">
-                                        <div class="form-logo">
-                                            <svg width="16px" height="16px" viewBox="0 0 24 24">
-                                            <g
-                                                stroke="#666"
-                                                stroke-width="1.5"
-                                                fill="none"
-                                                fill-rule="evenodd"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                >
-                                            <path id="searchsvg" d=""></path>
-                                            </g>
-                                            </svg>
-                                        </div>
-                                        <div class="form-text-field">
-                                            <div class="search-input-field">
-                                                <input class="search" type="text" width="100%" placeholder="Search Quora" autocomplete="chrome-off" value="" />
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div class="form-container">
+                            <div class="form-logo">
+                                <svg width="16px" height="16px" viewBox="0 0 24 24">
+                                <g
+                                    stroke="#666"
+                                    stroke-width="1.5"
+                                    fill="none"
+                                    fill-rule="evenodd"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    >
+                                <path id="searchsvg" d=""></path>
+                                </g>
+                                </svg>
+                            </div>
+                            <div class="form-text-field">
+                                <div class="search-input-field">
+                                    <input class="search" type="text" width="100%" placeholder="Search Quora" autocomplete="chrome-off" value="" />
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
                     <div class="account-extend-wrapper">
                         <a class="user-wrapper" onclick="showAccountExtend()">
@@ -142,5 +139,6 @@
     <script src="../navbar/accountExtend.js"></script>
     <script src="../navbar/userInfor.js" type="module" ></script>
     <script src="../navbar/logout.js" type="module" ></script>
+    <script src="../navbar/getTotalUnseenNotification.js" type="module" ></script>
 
 </html>

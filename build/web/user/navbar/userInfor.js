@@ -28,6 +28,10 @@ function getUserInfor() {
 }
 
 function setUserNavbar(user) {
-    document.getElementById("avatar").src = user.url;
+    if (user.url) {
+        document.getElementById("avatar").src = user.url;
+    } else {
+        document.getElementById("avatar").src = "../../assets/mark.jpg";
+    }
     document.getElementById("extend-username").innerHTML = user.lastName + " " + user.firstName;
 }
