@@ -1,0 +1,143 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jan 3, 2021, 10:32:38 AM
+    Author     : ADMIN
+*/
+
+html,
+body {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+.setting-wrapper {
+   position: relative;
+   width: 100%;
+   top: 70px;
+}
+
+.setting-container {
+   margin: auto;
+   width: 750px;
+   border-radius: 5px;
+   /* background-color: gray; */
+}
+
+.banner {
+   font-size: 20px;
+   font-weight: bold;
+   display: block;
+   padding: 8px 12px;
+   border-bottom: 1px solid black;
+}
+
+.setting-class {
+   padding: 17px 12px;
+   border-bottom: 1px solid rgba(1, 1, 1, 0.4);
+}
+
+.showing-model {
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+}
+
+.f1 {
+   flex: 0.2;
+   font-weight: bold;
+}
+
+.f2 {
+   flex: 0.7;
+}
+
+.f3 {
+   flex: 0.1;
+   color: blue;
+   cursor: pointer;
+}
+
+.f3:hover {
+   text-decoration: underline;
+}
+
+/* .setting-password {
+   padding: 17px 12px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   border-bottom: 1px solid rgba(1, 1, 1, 0.4);
+} */
+
+.change-pasword {
+   flex: 0.9;
+}
+
+.edit-model {
+   display: none;
+   flex-direction: column;
+   align-items: center;
+}
+
+.model-row {
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   margin-top: 10px;
+   margin-bottom: 10px;
+}
+
+.model-label {
+   margin-left: 25%;
+   flex: 0.3;
+}
+
+.model-input {
+   flex: 0.3;
+   width: 300px;
+   padding: 8px 12px;
+   font-size: 15px;
+}
+
+.submit-button {
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+   padding: 8px 12px;
+   font-size: 15px;
+   background-color: rgba(185, 43, 39);
+   color: white;
+   border-radius: 5px;
+   cursor: pointer;
+}
+
+.submit-button:hover {
+   background-color: rgba(185, 43, 39, 0.9);
+}
+
+.cancel-button {
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+   padding: 8px 12px;
+   font-size: 15px;
+   background-color: rgb(39, 73, 185);
+   color: white;
+   border-radius: 5px;
+   cursor: pointer;
+   margin-left: 10px;
+}
+
+.cancel-button:hover {
+   background-color: rgba(39, 73, 185, 0.9);
+}
+
+.flex-row {
+   margin-top: 5px;
+}

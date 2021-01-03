@@ -26,8 +26,7 @@
             </div>
         </div>
     </body>
-    <script src="admin-notification.js" ></script>
-    <script src="../navbar/navbar.js" ></script>
+    <script src="admin-notification.js" type="module"></script>
     <script>
         setGray("notification");
         setRed("announcements")

@@ -55,7 +55,11 @@ function getUserGreeing() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             const response = JSON.parse(xhr.responseText);
             checkTokenExpired(response);
-            document.querySelector(".user-logo-image").src = response.url;
+            if (response.url) {
+                document.querySelector(".user-logo-image").src = response.url;
+            } else {
+                document.querySelector(".user-logo-image").src = "../../assets/mark.jpg";
+            }
             document.getElementById("user-greeting-name").innerHTML = response.lastName + " " + response.firstName;
         }
     };
@@ -150,7 +154,7 @@ function addAnswerCard(answers) {
                                 <a href="../question/question.jsp?questionId=' + a.questionId + '" style="color: black">' + a.question + '</a>\n\
                             </div>\n\
                             <div class="answer-full-content">' + a.content + '</div>\n\
-                            <div class="answer-demo-image" id="demo-image-' + a.questionId + '">\n\
+                            <div class="answer-demo-image" id="demo-image-' + a.answerId + '">\n\
                                 <img src="' + answerDemo + '" alt="" />\n\
                             </div>\n\
                         </div>\n\
@@ -214,8 +218,6 @@ function addAnswerCard(answers) {
                         </div>\n\
                     </div>';
         newFeed.appendChild(htmlToElements(answer)[0]);
-        // set show hide action
-        setHideAction(a.questionId);
 //         set upvote , downvote action
         setVoteAction(a.answerId);
         // set add to bookamrk action
@@ -223,6 +225,8 @@ function addAnswerCard(answers) {
         // set report action
         setReportAction(a.answerId);
     }
+    // set show hide action
+    setHideAction(answerList);
 }
 
 function setVoteAction(answerId) {

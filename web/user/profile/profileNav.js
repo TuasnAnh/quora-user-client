@@ -117,7 +117,11 @@ function getUserAnswer() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             const response = JSON.parse(xhr.responseText);
             checkTokenExpired(response);
-            console.log(response);
+            if (response.length < 5) {
+                document.querySelector(".load-more-answer-button").style.display = "none";
+            } else {
+                document.querySelector(".load-more-answer-button").style.display = "flex";
+            }
             addUserAnswerCard(response);
         }
     };
@@ -187,7 +191,7 @@ function addUserAnswerCard(answers) {
                                 <a href="../question/question.jsp?questionId=' + a.questionId + '" style="color: black">' + a.question + '</a>\n\
                             </div>\n\
                             <div class="answer-full-content">' + a.content + '</div>\n\
-                            <div class="answer-demo-image" id="demo-image-' + a.questionId + '">\n\
+                            <div class="answer-demo-image" id="demo-image-' + a.answerId + '">\n\
                                 <img src="' + answerDemo + '" alt="" />\n\
                             </div>\n\
                         </div>\n\
@@ -234,11 +238,12 @@ function addUserAnswerCard(answers) {
                         </div>\n\
                     </div>';
         userAnswer.appendChild(htmlToElements(answer)[0]);
-        // set show hide action
-        setHideAction(a.questionId);
+
 //         set upvote , downvote action
         setVoteAction(a.answerId);
     }
+    // set show hide action
+    setHideAction(answerList);
 }
 
 function getUserBookmark() {
@@ -251,7 +256,11 @@ function getUserBookmark() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             const response = JSON.parse(xhr.responseText);
             checkTokenExpired(response);
-            console.log(response);
+            if (response.length < 10) {
+                document.querySelector(".load-more-bookmark-button").style.display = "none";
+            } else {
+                document.querySelector(".load-more-bookmark-button").style.display = "flex";
+            }
             addUserBookmarkCard(response);
         }
     };
@@ -306,7 +315,7 @@ function addUserBookmarkCard(bookmarks) {
                             </div>\n\
                             <div class="poster-infor">\n\
                                 <div class="flex-row">\n\
-                                    <a style="color:black; font-size: 13px; font-weight: bold" href="../account/account.jsp?id=' + a.authorId + ' class="poster-name">' + a.authorName + '</a>\n\
+                                    <a style="color:black; font-size: 13px; font-weight: bold" href="../account/account.jsp?id=' + a.authorId + '" class="poster-name">' + a.authorName + '</a>\n\
                                     &nbsp<span>·</span>&nbsp\n\
                                     <span style="color: #939598">' + a.time.split(" ")[0] + '</span>\n\
                                 </div>\n\
@@ -328,7 +337,7 @@ function addUserBookmarkCard(bookmarks) {
                                 <a href="../question/question.jsp?questionId=' + a.questionId + '" style="color: black">' + a.question + '</a>\n\
                             </div>\n\
                             <div class="answer-full-content">' + a.content + '</div>\n\
-                            <div class="answer-demo-image" id="demo-image-' + a.questionId + '">\n\
+                            <div class="answer-demo-image" id="demo-image-' + a.answerId + '">\n\
                                 <img src="' + answerDemo + '" alt="" />\n\
                             </div>\n\
                         </div>\n\
@@ -375,13 +384,14 @@ function addUserBookmarkCard(bookmarks) {
                         </div>\n\
                     </div>';
         userBookmark.appendChild(htmlToElements(answer)[0]);
-        // set show hide action
-        setHideAction(a.questionId);
+
 //         set upvote , downvote action
         setVoteAction(a.answerId);
         // set remove bookmark action
         setRemoveBookmark(a.answerId);
     }
+    // set show hide action
+    setHideAction(bookmarkList);
 }
 
 function setVoteAction(answerId) {
@@ -442,6 +452,11 @@ function getUserQuestion() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             const response = JSON.parse(xhr.responseText);
             checkTokenExpired(response);
+            if (response.length < 10) {
+                document.querySelector(".load-more-question-button").style.display = "none";
+            } else {
+                document.querySelector(".load-more-question-button").style.display = "flex";
+            }
             addUserQuestionCard(response);
         }
     };

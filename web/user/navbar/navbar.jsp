@@ -139,6 +139,7 @@
     <script src="../navbar/accountExtend.js"></script>
     <script src="../navbar/userInfor.js" type="module" ></script>
     <script src="../navbar/logout.js" type="module" ></script>
+    <script src="../navbar/search.js" type="module" ></script>
     <script src="../navbar/getTotalUnseenNotification.js" type="module" ></script>
 
 </html>

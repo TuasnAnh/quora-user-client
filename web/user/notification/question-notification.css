@@ -58,3 +58,23 @@ and open the template in the editor.
 .noti-instruction {
     margin-top: 4px;
 }
+
+.noti-header {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.remove-noti {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 1000px;
+}
+
+.remove-noti:hover {
+    background-color: rgba(185, 43, 39, 0.3);
+}

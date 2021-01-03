@@ -9,16 +9,18 @@ import {showReportSuccess} from "./showReportSuccess.js";
 
 export function reportAnswer(answerId) {
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", `${API_URL}/user/report`, true);
+    xhr.open("POST", `${API_URL}/user/report-answer`, true);
     xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest"); // Prevent CSRF attacks
     xhr.setRequestHeader('Accept', 'application/json; charset=utf-8');
     xhr.setRequestHeader('Content-type', "application/x-www-form-urlencoded; charset=utf-8");
     xhr.onreadystatechange = function (e) {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            const response = JSON.parse(xhr.responseText);
+            const isRepored = JSON.parse(xhr.responseText);
+            checkTokenExpired(isRepored);
+            if (isRepored) {
+                showReportSuccess();
+            }
         }
     };
     xhr.send(JSON.stringify({answerId}));
-    
-    showReportSuccess();
 }

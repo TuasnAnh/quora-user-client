@@ -32,3 +32,48 @@ and open the template in the editor.
    align-items: center;
    margin-top: 30px;
 }
+
+/* noti card */
+.notification-wrapper {
+   display: block;
+   width: 100%;
+   padding: 8px 12px;
+   background-color: rgba(185, 43, 39, 0.1);
+   border-radius: 3px;
+   margin-left: 8px;
+   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.04);
+   cursor: pointer;
+   color: black;
+}
+.notification-wrapper:hover {
+   background-color: rgba(185, 43, 39, 0.3);
+}
+
+.noti-content {
+   font-size: 20px;
+   font-weight: 500;
+}
+
+.noti-instruction {
+   margin-top: 4px;
+}
+
+.noti-header {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.remove-noti {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 1000px;
+}
+
+.remove-noti:hover {
+    background-color: rgba(185, 43, 39, 0.3);
+}

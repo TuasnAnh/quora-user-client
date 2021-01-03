@@ -44,7 +44,7 @@ document.querySelector(".load-more-question-button").onclick = async function ()
         isGetting = true;
         const params = (new URL(window.location.href)).searchParams;
         const topicId = params.get("topicId");
-        getTopicQuestion()(topicId);
+        getTopicQuestion(topicId);
         isGetting = false;
     }
 };
@@ -89,7 +89,11 @@ function getTopicAnswer(topicId) {
         if (xhr.readyState === 4 && xhr.status === 200) {
             const response = JSON.parse(xhr.responseText);
             checkTokenExpired(response);
-            console.log(response);
+            if (response.length < 5) {
+                document.querySelector(".load-more-answer-button").style.display = "none";
+            } else {
+                document.querySelector(".load-more-answer-button").style.display = "flex";
+            }
             addTopicAnswerCard(response);
         }
     };
@@ -101,7 +105,6 @@ function getTopicAnswer(topicId) {
         lastId = -1;
     }
     xhr.send(JSON.stringify({lastId, topicId}));
-//    xhr.send(JSON.stringify(data));
 }
 
 function getTopicQuestion(topicId) {
@@ -114,6 +117,11 @@ function getTopicQuestion(topicId) {
         if (xhr.readyState === 4 && xhr.status === 200) {
             const response = JSON.parse(xhr.responseText);
             checkTokenExpired(response);
+            if (response.length < 10) {
+                document.querySelector(".load-more-question-button").style.display = "none";
+            } else {
+                document.querySelector(".load-more-question-button").style.display = "flex";
+            }
             addTopicQuestionCard(response);
         }
     };
@@ -213,7 +221,7 @@ function addTopicAnswerCard(answers) {
                                 <a href="../question/question.jsp?questionId=' + a.questionId + '" style="color: black">' + a.question + '</a>\n\
                             </div>\n\
                             <div class="answer-full-content">' + a.content + '</div>\n\
-                            <div class="answer-demo-image" id="demo-image-' + a.questionId + '">\n\
+                            <div class="answer-demo-image" id="demo-image-' + a.answerId + '">\n\
                                 <img src="' + answerDemo + '" alt="" />\n\
                             </div>\n\
                         </div>\n\
@@ -277,8 +285,7 @@ function addTopicAnswerCard(answers) {
                         </div>\n\
                     </div>';
         topicAnswer.appendChild(htmlToElements(answer)[0]);
-        // set show hide action
-        setHideAction(a.questionId);
+
 //         set upvote , downvote action
         setVoteAction(a.answerId);
         // set add to bookamrk action
@@ -286,6 +293,8 @@ function addTopicAnswerCard(answers) {
         // set report action
         setReportAction(a.answerId);
     }
+    // set show hide action
+    setHideAction(answerList);
 }
 
 function setVoteAction(answerId) {

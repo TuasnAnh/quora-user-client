@@ -37,7 +37,7 @@
                     <!------------------- answer ------------------->
                     <div id="topic-answer-content">
                         <div id="topic-answer-section"></div>
-                        <div  class="end-of-page">
+                        <div class="end-of-page">
                             <div class="load-more-answer-button load-more">
                                 <span>Load more answers</span>
                             </div>

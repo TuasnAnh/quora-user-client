@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 import {API_URL, contextPath} from "./js/global-variable.js";
+import "./user/user-global-js/preventXSS.js";
+
 const loginButton = document.getElementById("login-button");
 const email = document.getElementById("email");
 const emailError = document.getElementById("email-error");
@@ -38,8 +40,8 @@ loginButton.onclick = async function () {
     }
 
     const data = {
-        email: email.value,
-        password: password.value,
+        email: email.value.escape(),
+        password: password.value.escape(),
     };
 
     const response = await loginAction(data);

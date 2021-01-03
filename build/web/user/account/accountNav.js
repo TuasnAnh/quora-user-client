@@ -79,7 +79,11 @@ function getUserAnswer() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             const response = JSON.parse(xhr.responseText);
             checkTokenExpired(response);
-            console.log(response);
+            if (response.length < 5) {
+                document.querySelector(".load-more-answer-button").style.display = "none";
+            } else {
+                document.querySelector(".load-more-answer-button").style.display = "flex";
+            }
             addUserAnswerCard(response);
         }
     };
@@ -114,7 +118,6 @@ function addUserAnswerCard(answers) {
             answerDemo = hasImage[0];
         }
 
-        console.log(a);
         if (a.isUpvote) {
             upvoteStyle = "rgb(46, 105, 255)";
         }
@@ -151,7 +154,7 @@ function addUserAnswerCard(answers) {
                                 <a href="../question/question.jsp?questionId=' + a.questionId + '" style="color: black">' + a.question + '</a>\n\
                             </div>\n\
                             <div class="answer-full-content">' + a.content + '</div>\n\
-                            <div class="answer-demo-image" id="demo-image-' + a.questionId + '">\n\
+                            <div class="answer-demo-image" id="demo-image-' + a.answerId + '">\n\
                                 <img src="' + answerDemo + '" alt="" />\n\
                             </div>\n\
                         </div>\n\
@@ -198,11 +201,12 @@ function addUserAnswerCard(answers) {
                         </div>\n\
                     </div>';
         userAnswer.appendChild(htmlToElements(answer)[0]);
-        // set show hide action
-        setHideAction(a.questionId);
+
 //         set upvote , downvote action
         setVoteAction(a.answerId);
     }
+    // set show hide action
+    setHideAction(answerList);
 }
 
 function setVoteAction(answerId) {
@@ -224,6 +228,11 @@ function getUserQuestion() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             const response = JSON.parse(xhr.responseText);
             checkTokenExpired(response);
+            if (response.length < 10) {
+                document.querySelector(".load-more-question-button").style.display = "none";
+            } else {
+                document.querySelector(".load-more-question-button").style.display = "flex";
+            }
             addUserQuestionCard(response);
         }
     };

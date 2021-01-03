@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 import {API_URL, contextPath} from "./js/global-variable.js";
+import "./user/user-global-js/preventXSS.js";
 
 const registerButton = document.getElementById("register-button");
 const firstName = document.getElementById("firstname");
@@ -71,10 +72,10 @@ registerButton.onclick = async function () {
 function register() {
     return new Promise((resolve) => {
         const data = {
-            firstname: firstName.value,
-            lastname: lastName.value,
-            email: emailRe.value,
-            password: passRe.value,
+            firstname: firstName.value.escape(),
+            lastname: lastName.value.escape(),
+            email: emailRe.value.escape(),
+            password: passRe.value.escape(),
         }
 
         const xhr = new XMLHttpRequest();

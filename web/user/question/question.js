@@ -63,6 +63,11 @@ function getAnswerQuestion() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             const response = JSON.parse(xhr.responseText);
             checkTokenExpired(response);
+            if (response.length < 5) {
+                document.querySelector(".load-more-button").style.display = "none";
+            } else {
+                document.querySelector(".load-more-button").style.display = "flex";
+            }
             console.log(response);
             addQuestionAnswerCard(response);
         }
@@ -140,7 +145,7 @@ function addQuestionAnswerCard(answers) {
                                 <a href="../question/question.jsp?questionId=' + a.questionId + '" style="color: black">' + a.question + '</a>\n\
                             </div>\n\
                             <div class="answer-full-content">' + a.content + '</div>\n\
-                            <div class="answer-demo-image" id="demo-image-' + a.questionId + '">\n\
+                            <div class="answer-demo-image" id="demo-image-' + a.answerId + '">\n\
                                 <img src="' + answerDemo + '" alt="" />\n\
                             </div>\n\
                         </div>\n\
@@ -204,8 +209,7 @@ function addQuestionAnswerCard(answers) {
                         </div>\n\
                     </div>';
         questionPage.appendChild(htmlToElements(answer)[0]);
-        // set show hide action
-        setHideAction(a.questionId);
+
 //         set upvote , downvote action
         setVoteAction(a.answerId);
         // set add to bookamrk action
@@ -213,6 +217,8 @@ function addQuestionAnswerCard(answers) {
         // set report action
         setReportAction(a.answerId);
     }
+    // set show hide action
+    setHideAction(answerList);
 }
 
 function setVoteAction(answerId) {
