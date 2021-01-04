@@ -6,4 +6,4 @@
 
 export const API_URL = "http://localhost:38940/quora-api";
 
-export const contextPath = "http://localhost:38940/user-client"
+export const contextPath = "http://localhost:38940/quora-user-client";

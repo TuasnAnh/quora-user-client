@@ -108,3 +108,4 @@ function resetStyle() {
     passwordError.style = null;
     passwordEmpty.style = null;
 }
+
