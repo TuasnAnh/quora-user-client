@@ -3,18 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/quora-app/quora-user-client/web/js/global-variable.js</file>
-            <file>file:/E:/quora-app/quora-user-client/web/WEB-INF/web.xml</file>
-            <file>file:/E:/quora-app/quora-user-client/web/register.js</file>
-            <file>file:/E:/quora-app/quora-user-client/web/user/homepage/homepage.jsp</file>
+            <file>file:/E:/quora-app/quora-user-client/web/login.css</file>
+            <file>file:/E:/quora-app/quora-user-client/web/user/navbar/navbar.css</file>
+            <file>file:/E:/quora-app/quora-user-client/web/user/navbar/search.js</file>
+            <file>file:/E:/quora-app/quora-user-client/web/user/topic/topic.css</file>
             <file>file:/E:/quora-app/quora-user-client/web/user/navbar/navbar.jsp</file>
             <file>file:/E:/quora-app/quora-user-client/web/user/addquestion/addQuestion.jsp</file>
-            <file>file:/E:/quora-app/quora-user-client/web/login.js</file>
-            <file>file:/E:/quora-app/quora-user-client/web/user/addquestion/addQuestion.js</file>
-            <file>file:/E:/quora-app/quora-user-client/web/user/question/question.jsp</file>
-            <file>file:/E:/quora-app/quora-user-client/web/user/question/question.js</file>
-            <file>file:/E:/quora-app/quora-user-client/web/login.jsp</file>
-            <file>file:/E:/quora-app/quora-user-client/web/user/navbar/navbar.js</file>
+            <file>file:/E:/quora-app/quora-user-client/web/user/navbar/reportNotification.css</file>
+            <file>file:/E:/quora-app/quora-user-client/web/user/user-global-js/showReportSuccess.js</file>
+            <file>file:/E:/quora-app/quora-user-client/web/user/navbar/logout.js</file>
         </group>
     </open-files>
 </project-private>

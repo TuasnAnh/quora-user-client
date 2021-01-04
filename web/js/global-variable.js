@@ -4,6 +4,6 @@
  * and open the template in the editor.
  */
 
-export const API_URL = "http://localhost:38940/quora-api";
+export const API_URL = "http://localhost:38940/quora-user-api";
 
 export const contextPath = "http://localhost:38940/quora-user-client";

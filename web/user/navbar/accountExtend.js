@@ -7,6 +7,6 @@ function showAccountExtend() {
     accountExtend.addEventListener("blur", function () {
         setTimeout(() => {
             accountExtend.style.display = "none";
-        }, 200);
+        }, 500);
     });
 }

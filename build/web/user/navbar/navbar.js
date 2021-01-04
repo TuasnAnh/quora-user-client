@@ -61,3 +61,4 @@ function setGray(except) {
 function logout() {
    console.log("log");
 }
+

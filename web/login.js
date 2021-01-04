@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 import {API_URL, contextPath} from "./js/global-variable.js";
+import "./user/user-global-js/preventXSS.js";
+
 const loginButton = document.getElementById("login-button");
 const email = document.getElementById("email");
 const emailError = document.getElementById("email-error");
@@ -13,11 +15,10 @@ const password = document.getElementById("password");
 const passwordError = document.getElementById("pass-error");
 const passwordEmpty = document.getElementById("pass-empty");
 
-document.onload = function () {
-    if (localStorage.getItem("role") === "USER") {
+window.onload = function () {
+    if (localStorage.getItem("firstLogin")) {
         window.location = contextPath + "/user/homepage/homepage.jsp";
     }
-    // TODO: check role in cookie
 }
 
 let exit = false;
@@ -39,8 +40,8 @@ loginButton.onclick = async function () {
     }
 
     const data = {
-        email: email.value,
-        password: password.value,
+        email: email.value.escape(),
+        password: password.value.escape(),
     };
 
     const response = await loginAction(data);
@@ -54,6 +55,9 @@ loginButton.onclick = async function () {
             break;
         case "account not verified":
             accountNotVerified();
+            break;
+        case "banned account":
+            alert("Banned account");
             break;
         case "login success":
             loginSuccess();

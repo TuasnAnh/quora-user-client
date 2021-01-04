@@ -15,10 +15,21 @@
 //}
 import {API_URL, contextPath} from "../../js/global-variable.js";
 
-const firstLogin = localStorage.getItem("firstLogin");
-if (firstLogin) {
-    window.location = contextPath + "/user/homepage/homepage.jsp";
-} else {
+export function checkUserLogin() {
+    const firstLogin = localStorage.getItem("firstLogin");
+    if (!firstLogin) {
+        window.location = contextPath + "/login.jsp";
+    }
+}
+
+export function checkTokenExpired(response) {
+    if (response.authError) {
+        logout();
+    }
+}
+
+export function logout() {
+    localStorage.clear();
     window.location = contextPath + "/login.jsp";
 }
 

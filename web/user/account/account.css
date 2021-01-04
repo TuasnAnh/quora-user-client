@@ -86,10 +86,6 @@ body {
    cursor: pointer;
 }
 
-.name-edit:hover {
-   text-decoration: underline;
-}
-
 .user-name-group:hover .name-edit {
    display: block;
 }
@@ -97,11 +93,6 @@ body {
 .user-avatar img {
    width: 100px;
    height: 100px;
-}
-
-.user-credential:hover,
-.user-description:hover {
-   text-decoration: underline;
 }
 
 .profile-header-description {
@@ -156,11 +147,7 @@ body {
 .credential-text {
    font-size: 13px;
    color: rgb(25, 95, 170);
-   cursor: pointer;
    margin-left: 10px;
-}
-.credential-text:hover {
-   text-decoration: underline;
 }
 
 .account-topic-title {
@@ -300,4 +287,32 @@ body {
 
 #user-bookmark-wrapper {
     display: none
+}
+
+/*end of page style*/
+.end-of-page {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.load-more {
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    background-color: #b92b27;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.load-more:hover {
+    background-color: #de1f19;
+}
+
+.load-more span {
+    padding: 5px 12px;
 }

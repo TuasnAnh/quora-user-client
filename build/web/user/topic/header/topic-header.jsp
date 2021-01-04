@@ -20,9 +20,9 @@
                 <img id="topic-image" alt="" />
             </div>
             <div class="flex-column" style="flex: 1; padding-left: 10px">
-                <span id="topic-page-name" style="font-weight: bold; font-size: 20px; margin-bottom: 9px">Topic name</span>
+                <span id="topic-page-name" style="font-weight: bold; font-size: 20px; margin-bottom: 9px"></span>
                 <div class="flex-row" style="justify-content: space-between">
-                    <div class="topic-follow-wrapper flex-row" onclick="followTopic()">
+                    <div class="topic-follow-wrapper flex-row">
                         <div class="topic-follow-icon flex-row">
                             <svg width="24" height="24" viewBox="0 0 24 24">
                             <g
@@ -40,33 +40,22 @@
                             </g>
                             </svg>
                         </div>
-                        <span id="follow-text" class="topic-follow-text">Follow</span>
-                        <span id="follow-amount">20</span>
+                        <span id="follow-text" class="topic-follow-text"></span>
+                        <span id="follow-amount"></span>
                     </div>
                     <!-- resuse report button -->
-                    <div class="report-button">
-                        <div class="report-button-svg">
-                            <svg width="24px" height="24px" viewBox="0 0 24 24">
-                            <g id="reportsvg" stroke-width="1.5" stroke="#666" fill="none" fill-rule="evenodd">
-                            <path
-                                d="M5,14 C3.8954305,14 3,13.1045695 3,12 C3,10.8954305 3.8954305,10 5,10 C6.1045695,10 7,10.8954305 7,12 C7,13.1045695 6.1045695,14 5,14 Z M12,14 C10.8954305,14 10,13.1045695 10,12 C10,10.8954305 10.8954305,10 12,10 C13.1045695,10 14,10.8954305 14,12 C14,13.1045695 13.1045695,14 12,14 Z M19,14 C17.8954305,14 17,13.1045695 17,12 C17,10.8954305 17.8954305,10 19,10 C20.1045695,10 21,10.8954305 21,12 C21,13.1045695 20.1045695,14 19,14 Z"
-                                ></path>
-                            </g>
-                            </svg>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
 
         <div class="topic-navbar">
-            <a onclick="enableTopicAnswer()"s id="topic-answer-nav">
+            <a id="topic-answer-nav">
                 <span>Answer</span>
             </a>
-            <a onclick="enableTopicQuestion()" id="topic-question-nav">
+            <a id="topic-question-nav">
                 <span>Question</span>
             </a>
         </div>
     </body>
-    <script src="header/topic-header.js" ></script>
+    <script src="header/topic-header.js" type="module"></script>
 </html>
